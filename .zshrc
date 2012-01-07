@@ -55,22 +55,22 @@ function git_time_since_commit() {
       fi
 
       if [ "$HOURS" -gt 24 ]; then
-        echo "($COLOR${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m%{$reset_color%}|"
+        echo "$COLOR${DAYS}d${SUB_HOURS}h${SUB_MINUTES}m%{$reset_color%} "
       elif [ "$MINUTES" -gt 60 ]; then
-        echo "($COLOR${HOURS}h${SUB_MINUTES}m%{$reset_color%}|"
+        echo "$COLOR${HOURS}h${SUB_MINUTES}m%{$reset_color%} "
       else
-        echo "($COLOR${MINUTES}m%{$reset_color%}|"
+        echo "$COLOR${MINUTES}m%{$reset_color%} "
       fi
     else
       COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
-      echo "($COLOR~|"
+      echo "$COLOR~| "
     fi
   fi
 }
 
 function prompt_char {
-  git branch >/dev/null 2>/dev/null && echo '[±])' && return
-  hg root >/dev/null 2>/dev/null && echo '[☿])' && return
+  git branch >/dev/null 2>/dev/null && echo '[±] ' && return
+  hg root >/dev/null 2>/dev/null && echo '[☿] ' && return
   echo ''
 }
 
@@ -111,7 +111,7 @@ local current_path="%(?,%{$fg[green]%}%~%{$reset_color%},%{$fg[red]%}%~%{$reset_
 
 PROMPT='
 ${current_path}
-%{$fg[white]%}$(git_time_since_commit)%{$fg[white]%}$(prompt_char)> %{$reset_color%}'
+%{$fg[white]%}$(prompt_char)%{$fg[white]%}$(git_time_since_commit)> %{$reset_color%}'
 
 RPROMPT='%{$fg[white]%} $(ruby_prompt)$(~/bin/git-cwd-info.rb)%{$reset_color%}'
 
