@@ -79,6 +79,11 @@ function mcd() {
   mkdir -p "$1" && cd "$1";
 }
 
+# gitdir : mkdir, cd to it, init git, create initial empty commit
+function gitdir() {
+  mkdir -p "$1" && cd "$1" && git init && git commit --allow-empty -m 'initial commit';
+}
+
 #########
 # COLORS
 #########
