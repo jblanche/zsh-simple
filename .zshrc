@@ -167,6 +167,7 @@ alias gplod="git pull origin development"
 alias gplom="git pull origin master"
 alias gpsod="git push origin development"
 alias gpsom="git push origin master"
+alias mate="subl"
 
 #######
 # PATH
