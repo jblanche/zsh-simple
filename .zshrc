@@ -106,9 +106,12 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 # PROMPT
 #########
 
+# Current path color depending on last command exit status
+local current_path="%(?,%{$fg[green]%}%~%{$reset_color%},%{$fg[red]%}%~%{$reset_color%})"
+
 PROMPT='
-%~
-%{$fg[white]%}$(git_time_since_commit)%{$fg[white]%}$(prompt_char) > %{$reset_color%}'
+${current_path}
+%{$fg[white]%}$(git_time_since_commit)%{$fg[white]%}$(prompt_char)> %{$reset_color%}'
 
 RPROMPT='%{$fg[white]%} $(ruby_prompt)$(~/bin/git-cwd-info.rb)%{$reset_color%}'
 
