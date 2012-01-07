@@ -63,7 +63,7 @@ function git_time_since_commit() {
       fi
     else
       COLOR="$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL"
-      echo "$COLOR~| "
+      echo ""
     fi
   fi
 }
