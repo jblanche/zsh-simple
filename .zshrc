@@ -84,6 +84,12 @@ function gitdir() {
   mkdir -p "$1" && cd "$1" && git init && git commit --allow-empty -m 'initial commit';
 }
 
+# gco : pull before committing new changes (fail early fail often)
+function gco() {
+  git pull && git commit -m $1
+}
+
+
 #########
 # COLORS
 #########
