@@ -126,6 +126,18 @@ ${current_path}
 
 RPROMPT='%{$fg[white]%} $(ruby_prompt)$(~/bin/git-cwd-info.rb)%{$reset_color%}'
 
+
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=5000               #Number of history entries to save to disk
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
 #############
 # COMPLETION
 #############
@@ -184,5 +196,16 @@ alias mate="subl"
 # PATH
 #######
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/X11/bin:/Users/jblanche/.rbenv/bin:/Users/jblanche/bin
+export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/X11/bin:/Users/jblanche/.rbenv/bin:/Users/jblanche/bin:$HOME/.rbenv/bin
 
+export NODE_PATH="/usr/local/lib/node"
+#######
+# PATH
+#######
+
+eval "$(rbenv init -)"
+
+##############
+# AutoJump
+##############
+source ~/.autojump/etc/profile.d/autojump.zsh
